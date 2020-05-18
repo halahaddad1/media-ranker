@@ -8,7 +8,7 @@
 
 require 'csv'
 
-WORK_FILE = Rails.root.join('db', 'seed_data', 'works-seeds.csv')
+WORK_FILE = Rails.root.join('db', 'works-seeds.csv')
 puts "Loading raw media data from #{WORK_FILE}"
 
 work_failures = []
@@ -16,9 +16,9 @@ CSV.foreach(WORK_FILE, :headers => true) do |row|
   work = Work.new
   work.id = row['id']
   work.category = row['category']
-  driver.creator = row['creator']
-  driver.publication_year = row['publication_year']
-  driver.description = row['description']
+  work.creator = row['creator']
+  work.publication_year = row['publication_year']
+  work.description = row['description']
 
   successful = work.save
   if !successful
