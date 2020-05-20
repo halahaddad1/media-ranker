@@ -1,0 +1,20 @@
+kindred:
+  category: movie
+  title: Kindred
+  creator: butler
+  publication_year: 1979
+  description: A good sci-fi book
+  
+parable:
+  category: book
+  title: Parable of the Sower
+  creator: butler
+  publication_year: 1993
+  description: Fire drugs?
+  
+poodr:
+  category: album
+  title: Practical Object Oriented Design in Ruby
+  creator: metz
+  publication_year: 2012
+  description: A good book on programming
