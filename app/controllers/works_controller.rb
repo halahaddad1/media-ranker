@@ -23,9 +23,11 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params) 
     if @work.save 
+      flash[:success] = "Media added successfully!"
       redirect_to root_path 
       return
     else 
+      flash[:error] = "Media cannot be added!"
       render :new, status: :bad_request 
       return
     end
@@ -45,16 +47,12 @@ class WorksController < ApplicationController
     if @work.nil?
       head :not_found
       return 
-    elsif @work.update(
-      category: params[:work][:category],
-      title: params[:work][:title],
-      creator: params[:work][:creator],
-      publication_year: params[:work][:publication_year],
-      description: params[:work][:description]
-    )
+    elsif @work.update(work_params)
+      flash[:success] = "Media updated successfully"
       redirect_to work_path(@work.id)
       return
     else
+      flash[:error] = "Something happened, Media update unsuccessful!"
       render :edit
       return
     end
