@@ -1,0 +1,102 @@
+
+<div class="card">
+    <div class="card-body">
+        <div class="card-body">
+        <% spotlight = Work.random_spotlight %>
+            <h2 class="card-title row">Media Spotlight:<div class="spotlight"> <%= link_to spotlight.title, work_path(spotlight), style:"text-decoration: underline" %> by <%= spotlight.creator %></div></h2>
+            <p class="card-text">
+              <%= spotlight.description %>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="row flex-nowrap">
+<div class="col-lg-6 col-md-6 col-sm-12">
+<table class="responsive table " >
+    <thead>
+        <tr>
+               <th >#</th>
+            <th >Category</th>
+            <th >Title</th>
+            <th >Creator</th>
+            <th >Publications Year</th>
+            <th >Description</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <h3> Top Movies </h3>
+<% Work.movies_list.limit(10).each do |work| %>
+        <tr>
+            <td ><%= work.id %></td>
+            <td ><%= work.category %></td>
+            <td ><%= link_to work.title, work_path(work) %></td>
+            <td ><%= work.creator %></td>
+            <td ><%= work.publication_year %></td>
+            <td ><%= work.description %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+</div>
+
+<div class=" col-lg-6 col-md-6 col-sm-12">
+<table class="responsive table">
+    <thead>
+        <tr>
+            <th >#</th>
+            <th >Category</th>
+            <th >Title</th>
+            <th >Creator</th>
+            <th >Publications Year</th>
+            <th >Description</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <h3> Top Books </h3>
+<% Work.books_list.limit(10).each do |work| %>
+        <tr>
+            <td ><%= work.id %></td>
+            <td ><%= work.category %></td>
+            <td ><%= link_to work.title, work_path(work) %></td>
+            <td ><%= work.creator %></td>
+            <td ><%= work.publication_year %></td>
+            <td ><%= work.description %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+</div>
+
+<div class=" col-lg-6 col-md-6 col-sm-12">
+<table class="responsive table">
+    <thead>
+        <tr>
+           <th >#</th>
+            <th >Category</th>
+            <th >Title</th>
+            <th >Creator</th>
+            <th >Publications Year</th>
+            <th >Description</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <h3> Top Albums </h3>
+<% Work.albums_list.limit(10).each do |work| %>
+        <tr>
+            <td ><%= work.id %></td>
+            <td ><%= work.category %></td>
+            <td ><%= link_to work.title, work_path(work) %></td>
+            <td ><%= work.creator %></td>
+            <td ><%= work.publication_year %></td>
+            <td ><%= work.description %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+</div>
+</div>
+

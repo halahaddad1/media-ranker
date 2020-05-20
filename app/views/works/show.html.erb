@@ -1,0 +1,24 @@
+<% # card styling from [source here]%>
+<div class="">
+    <div class="card testimonial-card">
+        <div class="card-up blue"></div>
+        <div class="avatar mx-auto white">
+            <img src="https://lh3.googleusercontent.com/09MrSuA_03kFmwv0UIoDN3fgQq5k0KDJvL0z9fc-zQc0ula3Z6qykCTNsKlCi-lCt7txzDdH9hre9ODBfA=s1600" class="rounded-circle img-fluid">
+        </div>
+        <div class="card-body">
+
+            <h2 class="spotlight"> <strong> <%= @work.title %></strong></h2>
+
+            <p><strong>Creator</strong>: <%= @work.creator %></p>
+            <p><strong>Publication Year</strong>: <%=  @work.publication_year %></p>
+            <p><strong>Description</strong>: <%= @work.description %></p>
+
+            <%= link_to "Back to Media Ranks", works_path, class: "btn btn-primary"%> 
+            <%= link_to "Edit", edit_work_path(@work.id), class: "btn btn-primary"%> 
+            <%= link_to "Upvote", edit_work_path(@work.id), class: "btn btn-primary"%> 
+            <%= link_to "Delete", work_path(@work), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %> 
+
+        </div>
+    </div>
+</div>
+

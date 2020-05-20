@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head >
     <title>MediaRanker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +10,48 @@
   </head>
 
   <body>
+  <header class="app-header-background">
+  <h1>
+  <%= link_to "Media Ranker", root_path, class:"app-title"%> 
+  <small class="app-title-small">Ranking the Best of Everything</small>
+  </h1>
+  <div class="d-flex ">
+  
+
+  <ul class="ullist nav ", style="list-style: none;">
+  <li class="m-3"> 
+  <%= link_to "View top media", root_path%> 
+  </li>
+  <li class="m-3">
+  <%= link_to "View all media", root_path%> 
+  </li>
+  <li class="m-3">
+  <%= link_to "Add a new work", root_path%> 
+  </li>
+  <li class="m-3">
+  <%= link_to "View all users", root_path%> 
+  </li>
+  </ul>
+
+ <div class="row col-md-4 offset-md-3 ">
+  <div class="m-1  ">
+    <button class="btn btnn btn-lg " style="float:right;" type="button" >
+      <%= link_to "Logged In as", works_path %>
+    </button>
+  </div>
+  <div class="m-1 ">
+    <button class="btn btnn btn-lg" style="float:right;" type="button" >
+      <%= link_to "Log out", works_path %>
+    </button>
+  </div>
+  </div>
+  </div>
+ 
+  
+
+  </header>
+  
     <%= yield %>
   </body>
 </html>
+
