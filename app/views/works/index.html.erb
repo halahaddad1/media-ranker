@@ -12,58 +12,26 @@
 </div>
 
 <div class="row flex-nowrap">
-<div class="col-lg-6 col-md-6 col-sm-12">
-<table class="responsive table " >
-    <thead>
-        <tr>
-               <th >#</th>
-            <th >Category</th>
-            <th >Title</th>
-            <th >Creator</th>
-            <th >Publications Year</th>
-            <th >Description</th>
-
-        </tr>
-    </thead>
+<div class=" col-md-4">
+<table class="responsive table table-borderless tbs" >
     <tbody>
         <h3> Top Movies </h3>
-<% Work.movies_list.limit(10).each do |work| %>
+            <% Work.movies_list.limit(10).each do |work| %>
         <tr>
-            <td ><%= work.id %></td>
-            <td ><%= work.category %></td>
-            <td ><%= link_to work.title, work_path(work) %></td>
-            <td ><%= work.creator %></td>
-            <td ><%= work.publication_year %></td>
-            <td ><%= work.description %></td>
+            <td ><%= link_to work.title, work_path(work), class:"spotlight" %> by:<%= work.creator %></td>
         </tr>
         <% end %>
     </tbody>
 </table>
 </div>
 
-<div class=" col-lg-6 col-md-6 col-sm-12">
-<table class="responsive table">
-    <thead>
-        <tr>
-            <th >#</th>
-            <th >Category</th>
-            <th >Title</th>
-            <th >Creator</th>
-            <th >Publications Year</th>
-            <th >Description</th>
-
-        </tr>
-    </thead>
+<div class=" col-md-4 ">
+<table class="responsive table table-borderless tbs">
     <tbody>
         <h3> Top Books </h3>
 <% Work.books_list.limit(10).each do |work| %>
         <tr>
-            <td ><%= work.id %></td>
-            <td ><%= work.category %></td>
-            <td ><%= link_to work.title, work_path(work) %></td>
-            <td ><%= work.creator %></td>
-            <td ><%= work.publication_year %></td>
-            <td ><%= work.description %></td>
+            <td ><%= link_to work.title, work_path(work), class:"spotlight" %>by:<%= work.creator %> </td>
         </tr>
         <% end %>
     </tbody>
@@ -71,28 +39,12 @@
 </div>
 
 <div class=" col-lg-6 col-md-6 col-sm-12">
-<table class="responsive table">
-    <thead>
-        <tr>
-           <th >#</th>
-            <th >Category</th>
-            <th >Title</th>
-            <th >Creator</th>
-            <th >Publications Year</th>
-            <th >Description</th>
-
-        </tr>
-    </thead>
+<table class="responsive table table-borderless">
     <tbody>
         <h3> Top Albums </h3>
 <% Work.albums_list.limit(10).each do |work| %>
         <tr>
-            <td ><%= work.id %></td>
-            <td ><%= work.category %></td>
-            <td ><%= link_to work.title, work_path(work) %></td>
-            <td ><%= work.creator %></td>
-            <td ><%= work.publication_year %></td>
-            <td ><%= work.description %></td>
+            <td ><%= link_to work.title, work_path(work), class:"spotlight" %> by:<%= work.creator %></td>
         </tr>
         <% end %>
     </tbody>

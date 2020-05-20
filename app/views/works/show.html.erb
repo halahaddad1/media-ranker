@@ -2,8 +2,8 @@
 <div class="">
     <div class="card testimonial-card">
         <div class="card-up blue"></div>
-        <div class="avatar mx-auto white">
-            <img src="https://lh3.googleusercontent.com/09MrSuA_03kFmwv0UIoDN3fgQq5k0KDJvL0z9fc-zQc0ula3Z6qykCTNsKlCi-lCt7txzDdH9hre9ODBfA=s1600" class="rounded-circle img-fluid">
+        <div class="avatar white">
+            <img src="https://lh3.googleusercontent.com/09MrSuA_03kFmwv0UIoDN3fgQq5k0KDJvL0z9fc-zQc0ula3Z6qykCTNsKlCi-lCt7txzDdH9hre9ODBfA=s1600" >
         </div>
         <div class="card-body">
 
@@ -12,6 +12,7 @@
             <p><strong>Creator</strong>: <%= @work.creator %></p>
             <p><strong>Publication Year</strong>: <%=  @work.publication_year %></p>
             <p><strong>Description</strong>: <%= @work.description %></p>
+            <p><strong>Category</strong>: <%= @work.category %></p>
 
             <%= link_to "Back to Media Ranks", works_path, class: "btn btn-primary"%> 
             <%= link_to "Edit", edit_work_path(@work.id), class: "btn btn-primary"%> 

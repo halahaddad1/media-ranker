@@ -151,6 +151,23 @@ h1 {
 .btn:hover, .btn:focus {
     text-decoration: none;
 }
+img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+  }
+  
+table {
+    border-spacing: 500em;
+    padding: 200px;
+  }
+  
+  td {
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+  }
 
 body {
     margin: 0;
