@@ -1,0 +1,54 @@
+<div class="card border-0">
+    <div class="card-body">
+        <div class="card-body">
+            <% spotlight = Work.random_spotlight %>
+            <h2 class="card-title row">Media Spotlight:<div class="spotlight"> <%= link_to spotlight.title, work_path(spotlight), style:"text-decoration: underline" %> by <%= spotlight.creator %></div>
+            </h2>
+            <p class="card-text">
+                <%= spotlight.description %>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="row flex-nowrap">
+    <div class=" col-md-4">
+        <table class="responsive table table-borderless tbs">
+            <tbody>
+                <h3> Top Movies </h3>
+                <% Work.movies_list.limit(10).each do |work| %>
+                <tr>
+                    <td><%= link_to work.title, work_path(work), class:"spotlight" %> by:<%= work.creator %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+
+    <div class=" col-md-4 ">
+        <table class="responsive table table-borderless tbs">
+            <tbody>
+                <h3> Top Books </h3>
+                <% Work.books_list.limit(10).each do |work| %>
+                <tr>
+                    <td><%= link_to work.title, work_path(work), class:"spotlight" %>by:<%= work.creator %> </td>
+
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+
+    <div class=" col-lg-6 col-md-6 col-sm-12">
+        <table class="responsive table table-borderless">
+            <tbody>
+                <h3> Top Albums </h3>
+                <% Work.albums_list.limit(10).each do |work| %>
+                <tr>
+                    <td><%= link_to work.title, work_path(work), class:"spotlight" %> by:<%= work.creator %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

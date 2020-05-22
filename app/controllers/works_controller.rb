@@ -1,10 +1,10 @@
 class WorksController < ApplicationController
   def index
-    if @works = Work.all
-      render :index
-    else 
-      render :index1
-    end
+    @works = Work.all
+  end
+
+  def home
+    @works = Work.all
   end
 
   def show
@@ -73,7 +73,7 @@ class WorksController < ApplicationController
   end
 
   def work_params
-    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
+    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description, :vote_id)
   end
 end
 

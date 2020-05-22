@@ -1,57 +1,62 @@
 <!DOCTYPE html>
 <html>
-  <head >
+
+<head>
     <title>MediaRanker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
 
-  <body>
-  <header class="app-header-background">
-  <h1>
-  <%= link_to "Media Ranker", root_path, class:"app-title"%> 
-  <small class="app-title-small">Ranking the Best of Everything</small>
-  </h1>
-  <div class="d-flex ">
-  
+<body>
+    <header class="app-header-background">
+        <h1>
+            <%= link_to "Media Ranker", root_path, class:"app-title"%>
+            <small class="app-title-small">Ranking the Best of Everything</small>
+        </h1>
+        <div class="navbar">
+            <ul class="ullist nav " , style="list-style: none;">
+                <li class="m-3">
+                    <%= link_to "View top media", root_path%>
+                </li>
+                <li class="m-3">
+                    <%= link_to "View all media", works_path%>
+                </li>
+                <li class="m-3">
+                    <%= link_to "Add a new work", new_work_path %>
+                </li>
+                <li class="m-3">
+                    <%= link_to "View all users", users_path%>
+                </li>
+            </ul>
 
-  <ul class="ullist nav ", style="list-style: none;">
-  <li class="m-3"> 
-  <%= link_to "View top media", root_path%> 
-  </li>
-  <li class="m-3">
-  <%= link_to "View all media", root_path%> 
-  </li>
-  <li class="m-3">
-  <%= link_to "Add a new work", new_work_path %> 
-  </li>
-  <li class="m-3">
-  <%= link_to "View all users", root_path%> 
-  </li>
-  </ul>
+            <div class="d-flex flex-row-reverse media-object">
+                <% if @user && @user.username  %>
+                <div class="position_login m-1 option-button">
+                    <button class="btn btnn" type="button" data-container="body">
+                        <%= link_to "Log Out", logout_path(@user), method: :post %>
+                    </button>
+                </div>
+                <div class="position_login m-1 option-button">
+                    <button class="btn btnn" type="button" data-container="body">
+                        <p>Logged in as <%= @user.username %></p>
+                    </button>
+                </div>
 
- <div class="row col-md-4 offset-md-3 ">
-  <div class="m-1  ">
-    <button class="btn btnn btn-lg " style="float:right;" type="button" >
-      <%= link_to "Logged In as", works_path %>
-    </button>
-  </div>
-  <div class="m-1 ">
-    <button class="btn btnn btn-lg" style="float:right;" type="button" >
-      <%= link_to "Log out", works_path %>
-    </button>
-  </div>
-  </div>
-  </div>
- 
-  
 
-  </header>
-  
+                <% else  %>
+                <div class="position_login m-1 option-button">
+                    <button class=" btn btnn" type="button" data-container="body">
+                        <%= link_to "Log In", login_path %>
+                    </button>
+                </div>
+                <% end %>
+            </div>
+    </header>
+
     <%= yield %>
-  </body>
-</html>
+</body>
 
+</html>

@@ -1,0 +1,24 @@
+<table class="table " >
+    <thead>
+        <tr>
+               
+            <th >Username</th>
+            <th >Votes</th>
+            <th >Joined</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <h3 class="spotlight"> List of Users </h3>
+<% @users.each do |user| %>
+        <tr>
+            <%# <th scope="row">1</th> %>
+            
+            <td ><%= user.username %></td>
+            <td ><%= "votes" %></td>
+            <td ><%= user.joined %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+</div>
