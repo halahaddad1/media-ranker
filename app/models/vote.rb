@@ -2,5 +2,6 @@ class Vote < ApplicationRecord
   belongs_to :user
   belongs_to :work
 
-  enum selectable_vote_types: [ :upvote, :downvote ]
+  validates :work, uniqueness: { scope: :user_id }
+  validates :user, uniqueness: { scope: :work_id }
 end

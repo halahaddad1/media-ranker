@@ -1,24 +1,25 @@
-<table class="table " >
+<table class="table ">
     <thead>
         <tr>
-               
-            <th >Username</th>
-            <th >Votes</th>
-            <th >Joined</th>
+
+            <th>Username</th>
+            <th>Votes</th>
+            <th>Joined</th>
 
         </tr>
     </thead>
     <tbody>
         <h3 class="spotlight"> List of Users </h3>
-<% @users.each do |user| %>
+        <% @users.each do |user| %>
         <tr>
             <%# <th scope="row">1</th> %>
-            
-            <td ><%= user.username %></td>
-            <td ><%= "votes" %></td>
-            <td ><%= user.joined %></td>
+
+            <td><%= link_to user.username, user_path(user.id), class:"spotlight" %></td>
+            <td><%= user.votes.count %></td>
+            <td><%= user.joined %></td>
         </tr>
         <% end %>
     </tbody>
 </table>
+<%= link_to "Back to Media List", works_path, class: "btn btn-secondary" %>
 </div>
