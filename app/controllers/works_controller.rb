@@ -24,7 +24,7 @@ class WorksController < ApplicationController
     @work = Work.new(work_params) 
     if @work.save 
       flash[:success] = "Media added successfully!"
-      redirect_to root_path 
+      redirect_to work_path(@work.id)
       return
     else 
       flash[:error] = "Media cannot be added!"
@@ -63,7 +63,9 @@ class WorksController < ApplicationController
     if @work.nil?
       head :not_found
       return
-    elsif @work.destroy
+    elsif 
+      @work.votes.destroy_all
+      @work.destroy
       redirect_to works_path
       return
     else
@@ -73,7 +75,7 @@ class WorksController < ApplicationController
   end
 
   def work_params
-    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description, :vote_id)
+    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
   end
 end
 

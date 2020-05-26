@@ -20,8 +20,7 @@ class VotesController < ApplicationController
         redirect_to request.referrer
         return
         else
-        flash[:error] = "Cannot Upvote this work!"
-        flash[:reason] = "Already Voted! cannot vote twice!"
+        flash[:error] = "Cannot Upvote something twice!"
         redirect_to request.referrer
         return
         end

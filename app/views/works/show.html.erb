@@ -1,4 +1,15 @@
-<% # card styling from [source here]%>
+<% if flash[:success] %>
+<div class="alert alert-info">
+    <%= flash[:success] %>
+</div>
+<% end %>
+
+<% if flash[:error] %>
+<div class="alert alert-danger">
+    <%= flash[:error] %>
+</div>
+<% end %>
+
 <div class="">
     <div class="card testimonial-card">
         <div class="card-up blue"></div>
@@ -14,10 +25,10 @@
             <p><strong>Description</strong>: <%= @work.description %></p>
             <p><strong>Category</strong>: <%= @work.category %></p>
 
-            <%= link_to "Back to Media Ranks", works_path, class: "btn btn-primary"%>
-            <%= link_to "Edit", edit_work_path(@work.id), class: "btn btn-primary"%>
-            <%= link_to "Upvote", work_votes_path(@work.id), method: :post, class: "btn btn-primary"%>
-            <%= link_to "Delete", work_path(@work), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %> 
+            <%= link_to "Back to Media Ranks", works_path, class: "btn btn-primary btnn"%>
+            <%= link_to "Edit", edit_work_path(@work.id), class: "btn btn-primary btnn"%>
+            <%= link_to "Upvote", work_votes_path(@work.id), method: :post, class: "btn btn-primary btnn"%>
+            <%= link_to "Delete", work_path(@work), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger btnn" %> 
 
         </div>
 
@@ -39,6 +50,6 @@
                     <% end %>
                 </tbody>
             </table>
-            </section>
         </div>
     </div>
+</div>

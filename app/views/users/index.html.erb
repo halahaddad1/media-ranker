@@ -1,3 +1,15 @@
+<% if flash[:success] %>
+<div class="alert alert-info">
+    <%= flash[:success] %>
+</div>
+<% end %>
+
+<% if flash[:error] %>
+<div class="alert alert-danger">
+    <%= flash[:error] %>
+</div>
+<% end %>
+
 <table class="table ">
     <thead>
         <tr>
@@ -21,5 +33,5 @@
         <% end %>
     </tbody>
 </table>
-<%= link_to "Back to Media List", works_path, class: "btn btn-secondary" %>
+<%= link_to "Back to Media List", works_path, class: "btn btn-secondary btnn" %>
 </div>

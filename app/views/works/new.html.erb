@@ -1,4 +1,16 @@
 <header>
-  <h3>Add work</h3>
+    <% if flash[:success] %>
+    <div class="alert alert-info">
+        <%= flash[:success] %>
+    </div>
+    <% end %>
+
+    <% if flash[:error] %>
+    <div class="alert alert-danger">
+        <%= flash[:error] %>
+    </div>
+    <% end %>
+
+    <h3>Add work</h3>
 </header>
 <%= render partial: "form", locals: { action_name: "New" } %>

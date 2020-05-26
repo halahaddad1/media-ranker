@@ -1,6 +1,18 @@
-<%= form_with model: @user, class: 'login__form', url: login_path do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+<% if flash[:success] %>
+<div class="alert alert-info">
+    <%= flash[:success] %>
+</div>
+<% end %>
 
-  <%= f.submit "Log In" %>
+<% if flash[:error] %>
+<div class="alert alert-danger">
+    <%= flash[:error] %>
+</div>
+<% end %>
+
+<%= form_with model: @user, class: 'login__form', url: login_path do |f| %>
+<%= f.label :username %>
+<%= f.text_field :username %>
+
+<%= f.submit "Log In" %>
 <% end %>

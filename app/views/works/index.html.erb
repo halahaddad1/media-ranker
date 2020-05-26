@@ -1,29 +1,85 @@
+<% if flash[:success] %>
+<div class="alert alert-info">
+    <%= flash[:success] %>
+</div>
+<% end %>
+
+<% if flash[:error] %>
+<div class="alert alert-danger">
+    <%= flash[:error] %>
+</div>
+<% end %>
+
 <table class="table ">
     <thead>
         <tr>
-            <th>#</th>
-            <th>Category</th>
-            <th>Title</th>
-            <th>Creator</th>
             <th>Votes</th>
-            <th>Publications Year</th>
-            <th>Description</th>
+            <th>Title</th>
+            <th>Created By</th>
+            <th>Published</th>
+            <th>Upvote</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <h3> Top Albums </h3>
+        <% Work.albums_list.each do |work| %>
+        <tr>
+            <td><%= work.votes.count %></td>
+            <td><%= link_to work.title, work_path(work),class:"spotlight" %></td>
+            <td><%= work.creator %></td>
+            <td><%= work.publication_year %></td>
+            <td><%= link_to "Upvote", work_votes_path(work.id), method: :post, class: "btn btn-primary btnn" %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<table class="table ">
+    <thead>
+        <tr>
+            <th>Votes</th>
+            <th>Title</th>
+            <th>Created By</th>
+            <th>Published</th>
+            <th>Upvote</th>
 
         </tr>
     </thead>
     <tbody>
         <h3> Top Movies </h3>
-        <% @works.each do |work| %>
+        <% Work.movies_list.each do |work| %>
         <tr>
-            <%# <th scope="row">1</th> %>
-            <td><%= work.id %></td>
-            <td><%= work.category %></td>
+            <td><%= work.votes.count %></td>
             <td><%= link_to work.title, work_path(work),class:"spotlight" %></td>
             <td><%= work.creator %></td>
-            <td><%= work.votes.count %></td>
             <td><%= work.publication_year %></td>
-            <td><%= link_to "Upvote", work_votes_path(work.id), method: :post, class: "btn btn-primary" %></td>
-            <td><%= work.description %></td>
+            <td><%= link_to "Upvote", work_votes_path(work.id), method: :post, class: "btn btn-primary btnn" %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<table class="table ">
+    <thead>
+        <tr>
+            <th>Votes</th>
+            <th>Title</th>
+            <th>Created By</th>
+            <th>Published</th>
+            <th>Upvote</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <h3> Top Books </h3>
+        <% Work.books_list.each do |work| %>
+        <tr>
+            <td><%= work.votes.count %></td>
+            <td><%= link_to work.title, work_path(work),class:"spotlight" %></td>
+            <td><%= work.creator %></td>
+            <td><%= work.publication_year %></td>
+            <td><%= link_to "Upvote", work_votes_path(work.id), method: :post, class: "btn btn-primary btnn" %></td>
         </tr>
         <% end %>
     </tbody>

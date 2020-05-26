@@ -8,27 +8,26 @@ class Work < ApplicationRecord
     validates :description, presence: true
     CATEGORIES = [:movie,:book,:album]
 
-    def self.random_spotlight
-        offset = rand(Work.count)
-        rand_record = Work.offset(offset).first
-        return rand_record
+    def self.spotlight
+        return Work.all.max_by { |work| work.votes.count }
     end
 
     def self.movies_list
        @movies= Work.where(category: "movie")
-       return @movies
+       return @movies.sort_by { |work| work.votes.count }.reverse!
     end
 
     def self.books_list
         @books=Work.where(category: "book")
-        return @books
+        return @books.sort_by { |work| work.votes.count }.reverse!
     end
 
     def self.albums_list
         @albums=Work.where(category: "album")
-        return @albums
+        return @albums.sort_by { |work| work.votes.count }.reverse!
     end
 
 
     
 end
+

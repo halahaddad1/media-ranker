@@ -1,12 +1,24 @@
+<% if flash[:success] %>
+<div class="alert alert-info">
+    <%= flash[:success] %>
+</div>
+<% end %>
+
+<% if flash[:error] %>
+<div class="alert alert-danger">
+    <%= flash[:error] %>
+</div>
+<% end %>
+
 <div class="card border-0">
     <div class="card-body">
         <div class="card-body">
-            <% spotlight = Work.random_spotlight %>
-            <h2 class="card-title row">Media Spotlight:<div class="spotlight"> <%= link_to spotlight.title, work_path(spotlight), style:"text-decoration: underline" %> by <%= spotlight.creator %></div>
+            <% spotlight = Work.spotlight %>
+            <h2 class="card-title row bold-title">Media Spotlight: <div class="spotlight bold-title"> <%= link_to spotlight.title, work_path(spotlight), style:"text-decoration: underline" %> by <%= spotlight.creator %></div>
             </h2>
             <p class="card-text">
-                <%= spotlight.description %>
-                <p><%= spotlight.votes.count %>- votes </p>
+                <p><%= spotlight.votes.count %> votes - <%= spotlight.description %></p>
+
         </div>
     </div>
 </div>
@@ -15,10 +27,10 @@
     <div class=" col-md-4">
         <table class="responsive table table-borderless tbs">
             <tbody>
-                <h3> Top Movies </h3>
-                <% Work.movies_list.limit(10).each do |work| %>
+                <h3 class="spotlight bold-title work-title"> Top Movies </h3>
+                <% Work.movies_list[0..10].each do |work| %>
                 <tr>
-                    <td><%= link_to work.title, work_path(work), class:"spotlight" %> by:<%= work.creator %></td>
+                    <td><%= link_to work.title, work_path(work), class:"spotlight bold-sub-title" %> by: <%= work.creator %> </br><%= work.votes.count %> votes</td>
                 </tr>
                 <% end %>
             </tbody>
@@ -28,10 +40,10 @@
     <div class=" col-md-4 ">
         <table class="responsive table table-borderless tbs">
             <tbody>
-                <h3> Top Books </h3>
-                <% Work.books_list.limit(10).each do |work| %>
+                <h3 class="spotlight bold-title work-title"> Top Books </h3>
+                <% Work.books_list[0..10].each do |work| %>
                 <tr>
-                    <td><%= link_to work.title, work_path(work), class:"spotlight" %>by:<%= work.creator %> </td>
+                    <td><%= link_to work.title, work_path(work), class:"spotlight bold-sub-title" %> by: <%= work.creator %></br><%= work.votes.count %> votes </td>
 
                 </tr>
                 <% end %>
@@ -42,10 +54,10 @@
     <div class=" col-lg-6 col-md-6 col-sm-12">
         <table class="responsive table table-borderless">
             <tbody>
-                <h3> Top Albums </h3>
-                <% Work.albums_list.limit(10).each do |work| %>
+                <h3 class="spotlight bold-title work-title"> Top Albums </h3>
+                <% Work.albums_list[0..10].each do |work| %>
                 <tr>
-                    <td><%= link_to work.title, work_path(work), class:"spotlight" %> by:<%= work.creator %></td>
+                    <td><%= link_to work.title, work_path(work), class:"spotlight bold-sub-title" %> by: <%= work.creator %></br><%= work.votes.count %> votes</td>
                 </tr>
                 <% end %>
             </tbody>
