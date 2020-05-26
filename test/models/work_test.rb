@@ -84,6 +84,8 @@ describe Work do
         result = @spotlight_media.valid?
         
         expect(result).must_equal true
+        expect(@spotlight_media).must_be_instance_of Work
+        expect(@works.max_by { |work| work.votes.count }).must_equal @spotlight_media
       end
     
 
