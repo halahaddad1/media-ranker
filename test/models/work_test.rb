@@ -5,44 +5,39 @@ describe Work do
     before do
       # Arrange
 
-      @work = Work.new(category:"movie",title: 'test movie', creator: "test creator",publication_year: "test date",description: "test description")
+      @example_work = Work.new(category:"movie",title: 'test movie', creator: "test creator",publication_year: "test date",description: "test description")
     end
 
     it 'is valid when all fields are present' do
       # Act
-      result = @work.valid?
+      result = @example_work.valid?
 
       # Assert
       expect(result).must_equal true
     end
 
     it 'is invalid without a title' do
-      # Arrange
-      @work.title = nil
+      @example_work.title = nil
     
-      # Act
-      result = @work.valid?
+      result = @example_work.valid?
     
-      # Assert
       expect(result).must_equal false
-      expect(@work.errors.messages).must_include :title
+      expect(@example_work.errors.messages).must_include :title
     end
   end
 
   describe 'methods' do
     before do
-      # Arrange
       @works = Work.all
 
-      @random_media = Work.random_spotlight
+      @spotlight_media = Work.spotlight
     end
 
   
-    it 'can return a random media item' do
+    it 'can return a top media item for spotlight' do
     
-      result = @random_media.valid?
+      result = @spotlight_media.valid?
       
-      # Assert
       expect(result).must_equal true
     end
   end
@@ -51,7 +46,6 @@ describe Work do
     
     result = Work.movies_list.count
     
-    # Assert
     expect(result).must_equal 1
   end
 
@@ -59,7 +53,6 @@ describe Work do
     
     result = Work.books_list.count
     
-    # Assert
     expect(result).must_equal 1
   end
 
@@ -71,19 +64,5 @@ describe Work do
     expect(result).must_equal 1
   end
 
-
-
-
 end
 
-
-  
-
-    
-
-    
-  
-
-  
-
-   

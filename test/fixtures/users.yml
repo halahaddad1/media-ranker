@@ -1,0 +1,11 @@
+valid_user1:
+  username: The GoodUser
+
+valid_user2:
+  username: Another GoodUser
+
+valid_user3:
+  username: Final GoodUser
+
+invalid_user:
+  username: 

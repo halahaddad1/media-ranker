@@ -11,8 +11,8 @@ class WorksController < ApplicationController
    work_id = params[:id]
    @work = Work.find_by(id: work_id)
     if @work.nil?
-      head :not_found
-      return
+      flash[:error] = "Media page does not exist! Here's a list of all Media available!"
+      redirect_to works_path
     end
   end
 

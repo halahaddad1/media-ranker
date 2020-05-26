@@ -1,0 +1,11 @@
+valid_vote1:
+  user: valid_user1
+  work: kindered
+
+valid_vote2:
+  user: valid_user2
+  work: poodr
+
+valid_vote3:
+  user: valid_user3
+  work: parable
